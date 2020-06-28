@@ -9,12 +9,12 @@ This is a short guide on building your own [Para-Para Paradise](https://en.wikip
 * Materials used:
   * 5x [VL53L1X](https://www.sparkfun.com/products/14722) 4 meter distance sensor
   * [Teensy 3.2](https://www.pjrc.com/store/teensy32_pins.html)
-  * [Qwiic mux board](https://www.sparkfun.com/products/14685) to connect more than 1 sensor to the Teensy (see notes below)
-  * [Regular jumper wires and qwiic wires](https://www.sparkfun.com/products/15081) since that's the connectors my boards have
+  * [Qwiic mux board](https://www.sparkfun.com/products/14685) to connect more than 1 sensor to the Teensy
+  * [Regular jumper wires and qwiic wires](https://www.sparkfun.com/products/15081) since that's the connectors my breakout boards have
   
 ## Notes on materials and project limitations
   
-**Disclaimer: this controller isn't working great. Read on.**
+**Disclaimer: this controller has poor range and field of view, see notes below.**
 
 ### Why these sensors?
 
@@ -25,7 +25,7 @@ I used this [distance sensor guide](https://www.sparkfun.com/distance_sensor_com
   1. $15 or so a piece (which ruled out all the cool lidars)
 
 The VL53L1X have 400 cm range, 50 Hz update rate, and are $20 a piece. Points (1) and (2), however, turned out to be moot.
-  * Although the sensor range is 4 metres, it cannot reliably detect small targets (like hands) at this distance. In practice, detection stopped working at 120 cm. Larger targets, such as a magazine, worked a little further, but nowhere close to 4 metres.
+  * Although the sensor range is 4 metres, it cannot reliably detect small targets (like hands) at this distance. In practice, detection stopped working at 120 cm. Larger targets, such as a magazine, worked a little further, but nowhere close to 4 metres. This is why the sensors are lifted onto boxes in the picture.
   * Para-Para timing windows are huge. Parastar uses 300 ms windows for all judgments, so picking a sensor with 10 Hz update rate would have been sufficient.
   
 ### Which Arduino?
