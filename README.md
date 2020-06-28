@@ -2,7 +2,7 @@
 
 This is a short guide on building your own [Para-Para Paradise](https://en.wikipedia.org/wiki/Para_Para_Paradise) controller using an Arduino and [ToF sensors](https://en.wikipedia.org/wiki/Time-of-flight_camera).
 
-TODO: pic
+![para-controller](https://user-images.githubusercontent.com/4284741/85947840-fc4c6080-b944-11ea-847f-0401745b6f3a.jpg)
 
 * Cost: $150
 * Time: a couple evenings
@@ -38,7 +38,7 @@ This was an easy way to connect multiple sensors to the same I2C bus. TL;DR all 
 
 ## Assembly
 
-TODO: pic
+![para-assembly](https://user-images.githubusercontent.com/4284741/85947845-08d0b900-b945-11ea-98d6-174939a78fee.jpg)
 
 1. Connect the Arduino to the main port on the mux
     * Find a cable with qwiic connector on one side, and 4 pins on the other
@@ -54,6 +54,11 @@ TODO: pic
 
 ## Code
 
-TODO: link to the firmware
-TODO: link to arduino and teensy sketch tutorial
-TODO: explain the firmware
+To program the controller, you will need the Arduino IDE, and the Teensyduino if using a Teensy.
+
+The sketch uses a simple algorithm:
+1. In a loop, poll each sensor for a reading
+1. If the reading is lower than a set threshold, send a joystick button press
+1. Else, send an off event to the button
+
+Upload the [sketch](https://github.com/Sereni/tof-para-controller/blob/master/para/para.ino) to your board. Stepmania should now recognize the controller as a joystick, and allow you to map the buttons in the usual way.
